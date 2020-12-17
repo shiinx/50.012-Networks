@@ -1,0 +1,41 @@
+git clone libcoap
+git clone miniet
+sudo ./COAP.py
+
+h2 libcoap/examples/coap-server &
+
+h1 tshark -i h1-eth0 -w /tmp/H1_1_put.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/H2_1_put.pcapng &
+h1 libcoap/examples/coap-client -m put coap://10.0.0.2:5683/example_data -f 1MB -b 1024 
+h1 killall tshark
+
+h1 tshark -i h1-eth0 -w /tmp/H1_1_get.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/H2_1_get.pcapng &
+h1 libcoap/examples/coap-client -m get coap://10.0.0.2:5683/example_data -b 1024 
+h1 killall tshark
+
+h2 libcoap/examples/coap-server &
+
+h1 tshark -i h1-eth0 -w /tmp/H1_5_put.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/H2_5_put.pcapng &
+h1 libcoap/examples/coap-client -m put coap://10.0.0.2:5683/example_data -f 5MB -b 1024
+h1 killall tshark
+
+h1 tshark -i h1-eth0 -w /tmp/H1_5_get.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/H2_5_get.pcapng &
+h1 libcoap/examples/coap-client -m get coap://10.0.0.2:5683/example_data -b 1024
+h1 killall tshark
+
+h2 libcoap/examples/coap-server &
+
+h1 tshark -i h1-eth0 -w /tmp/H1_10_put.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/H2_10_put.pcapng &
+h1 libcoap/examples/coap-client -m put coap://10.0.0.2:5683/example_data -f 10MB -b 1024
+h1 killall tshark
+
+h1 tshark -i h1-eth0 -w /tmp/H1_10_get.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/H2_10_get.pcapng &
+h1 libcoap/examples/coap-client -m get coap://10.0.0.2:5683/example_data -b 1024
+h1 killall tshark
+
+tar -cvzf pcapng.tar.gz H*
