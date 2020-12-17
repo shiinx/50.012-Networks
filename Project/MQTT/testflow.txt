@@ -1,0 +1,101 @@
+sudo ./mqtt1.py
+h3 ./mosquitto/src/mosquitto &
+h2 ./mosquitto/client/mosquitto_sub -h 10.0.0.3 -t test/q0 &
+h1 tshark -i h1-eth0 -w /tmp/MQTT1_1_0.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/MQTT2_1_0.pcapng &
+h3 tshark -i h3-eth0 -w /tmp/MQTT3_1_0.pcapng &
+h1 ./mosquitto/client/mosquitto_pub -h 10.0.0.3 -f hh.txt -t test/q0 -d
+h1 killall tshark
+exit
+sudo mn -c
+
+sudo ./mqtt1.py
+h3 ./mosquitto/src/mosquitto &
+h2 ./mosquitto/client/mosquitto_sub -h 10.0.0.3 -t test/q0 &
+h1 tshark -i h1-eth0 -w /tmp/MQTT1_5_0.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/MQTT2_5_0.pcapng &
+h3 tshark -i h3-eth0 -w /tmp/MQTT3_5_0.pcapng &
+h1 ./mosquitto/client/mosquitto_pub -h 10.0.0.3 -f hh5.txt -t test/q0 -d
+h1 killall tshark
+exit
+sudo mn -c
+
+sudo ./mqtt1.py
+h3 ./mosquitto/src/mosquitto &
+h2 ./mosquitto/client/mosquitto_sub -h 10.0.0.3 -t test/q0 &
+h1 tshark -i h1-eth0 -w /tmp/MQTT1_10_0.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/MQTT2_10_0.pcapng &
+h3 tshark -i h3-eth0 -w /tmp/MQTT3_10_0.pcapng &
+h1 ./mosquitto/client/mosquitto_pub -h 10.0.0.3 -f hh10.txt -t test/q0 -d
+h1 killall tshark
+exit
+sudo mn -c
+
+sudo ./mqtt1.py
+h3 ./mosquitto/src/mosquitto &
+h2 ./mosquitto/client/mosquitto_sub -h 10.0.0.3 -t test/q1 -q 1 &
+h1 tshark -i h1-eth0 -w /tmp/MQTT1_1_1.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/MQTT2_1_1.pcapng &
+h3 tshark -i h3-eth0 -w /tmp/MQTT3_1_1.pcapng &
+h1 ./mosquitto/client/mosquitto_pub -h 10.0.0.3 -f hh.txt -t test/q1 -q 1 -d
+h1 killall tshark
+exit
+sudo mn -c
+
+sudo ./mqtt1.py
+h3 ./mosquitto/src/mosquitto &
+h2 ./mosquitto/client/mosquitto_sub -h 10.0.0.3 -t test/q1 -q 1 &
+h1 tshark -i h1-eth0 -w /tmp/MQTT1_5_1.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/MQTT2_5_1.pcapng &
+h3 tshark -i h3-eth0 -w /tmp/MQTT3_5_1.pcapng &
+h1 ./mosquitto/client/mosquitto_pub -h 10.0.0.3 -f hh5.txt -t test/q1 -q 1 -d
+h1 killall tshark
+exit
+sudo mn -c
+
+sudo ./mqtt1.py
+h3 ./mosquitto/src/mosquitto &
+h2 ./mosquitto/client/mosquitto_sub -h 10.0.0.3 -t test/q1 -q 1 &
+h1 tshark -i h1-eth0 -w /tmp/MQTT1_10_1.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/MQTT2_10_1.pcapng &
+h3 tshark -i h3-eth0 -w /tmp/MQTT3_10_1.pcapng &
+h1 ./mosquitto/client/mosquitto_pub -h 10.0.0.3 -f hh10.txt -t test/q1 -q 1 -d
+h1 killall tshark
+exit
+sudo mn -c
+
+sudo ./mqtt1.py
+h3 ./mosquitto/src/mosquitto &
+h2 ./mosquitto/client/mosquitto_sub -h 10.0.0.3 -t test/q2 -q 2 &
+h1 tshark -i h1-eth0 -w /tmp/MQTT1_1_2.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/MQTT2_1_2.pcapng &
+h3 tshark -i h3-eth0 -w /tmp/MQTT3_1_2.pcapng &
+h1 ./mosquitto/client/mosquitto_pub -h 10.0.0.3 -f hh.txt -t test/q2 -q 2 -d
+h1 killall tshark
+exit
+sudo mn -c
+
+sudo ./mqtt1.py
+h3 ./mosquitto/src/mosquitto &
+h2 ./mosquitto/client/mosquitto_sub -h 10.0.0.3 -t test/q2 -q 2 &
+h1 tshark -i h1-eth0 -w /tmp/MQTT1_5_2.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/MQTT2_5_2.pcapng &
+h3 tshark -i h3-eth0 -w /tmp/MQTT3_5_2.pcapng &
+h1 ./mosquitto/client/mosquitto_pub -h 10.0.0.3 -f hh5.txt -t test/q2 -q 2 -d
+h1 killall tshark
+exit
+sudo mn -c
+
+sudo ./mqtt1.py
+h3 ./mosquitto/src/mosquitto &
+h2 ./mosquitto/client/mosquitto_sub -h 10.0.0.3 -t test/q2 -q 2 &
+h1 tshark -i h1-eth0 -w /tmp/MQTT1_10_2.pcapng &
+h2 tshark -i h2-eth0 -w /tmp/MQTT2_10_2.pcapng &
+h3 tshark -i h3-eth0 -w /tmp/MQTT3_10_2.pcapng &
+h1 ./mosquitto/client/mosquitto_pub -h 10.0.0.3 -f hh10.txt -t test/q2 -q 2 -d
+h1 killall tshark
+exit
+sudo mn -c
+
+
+tar -cvzf asda.tar.gz H*
